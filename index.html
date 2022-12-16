@@ -24,25 +24,18 @@
 
 <script type="text/babel">
     const root = ReactDOM.createRoot(document.getElementById("root"))
-    let counter = 0;
 
-    function countUp() {
-        counter++;
-        reRender();
-    }
+    const App = () => {
+        const [counter, modifier] = React.useState(0);
+        return (
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button>Click me!</button>
+            </div>
+        )
+    };
 
-    function reRender() {
-        root.render(<Container />)
-    }
-
-    const Container = () => (
-        <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick={countUp}>Click me!</button>
-        </div>
-    );
-
-    reRender();
+    root.render(<App />)
 </script>
 
 </html>
